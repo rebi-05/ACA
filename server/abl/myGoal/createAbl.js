@@ -6,11 +6,11 @@ const myGoalDao = require("../../dao/myGoal-dao.js");
 const schema = {
   type: "object",
   properties: {
-    name: { type: "string"},
+    name: {type: "string"},
     value: {type: "string"},
-    message: { type: "string" },
+    balance: { type: "string" },
   },
-  required: ["name", "value"],
+  required: ["name", "value", "balance"],
   additionalProperties: false,
 };
 

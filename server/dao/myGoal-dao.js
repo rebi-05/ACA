@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
@@ -12,7 +13,7 @@ function get(myGoalId) {
     return JSON.parse(fileData);
   } catch (error) {
     if (error.code === "ENOENT") return null;
-    throw { code: "failedToReadmyGoal", message: error.message };
+    throw { code: "failedToReadmyGoal", myGoal: error.myGoal };
   }
 }
 
@@ -25,7 +26,7 @@ function create(myGoal) {
     fs.writeFileSync(filePath, fileData, "utf8");
     return myGoal;
   } catch (error) {
-    throw { code: "failedToCreatemyGoal", message: error.message };
+    throw { code: "failedToCreatemyGoal", myGoal: error.myGoal };
   }
 }
 
@@ -40,7 +41,7 @@ function update(myGoal) {
     fs.writeFileSync(filePath, fileData, "utf8");
     return newmyGoal;
   } catch (error) {
-    throw { code: "failedToUpdatemyGoal", message: error.message };
+    throw { code: "failedToUpdatemyGoal", myGoal: error.myGoal };
   }
 }
 
@@ -54,7 +55,7 @@ function remove(myGoalId) {
     if (error.code === "ENOENT") {
       return {};
     }
-    throw { code: "failedToRemovemyGoal", message: error.message };
+    throw { code: "failedToRemovemyGoal", myGoal: error.myGoal };
   }
 }
 
@@ -63,15 +64,12 @@ function list() {
   try {
     const files = fs.readdirSync(myGoalFolderPath);
     const myGoalList = files.map((file) => {
-      const fileData = fs.readFileSync(
-        path.join(myGoalFolderPath, file),
-        "utf8"
-      );
+      const fileData = fs.readFileSync(path.join(myGoalFolderPath, file), "utf8");
       return JSON.parse(fileData);
     });
     return myGoalList;
   } catch (error) {
-    throw { code: "failedToListmyGoals", message: error.message };
+    throw { code: "failedToListmyGoals", myGoal: error.myGoal };
   }
 }
 

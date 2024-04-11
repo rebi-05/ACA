@@ -9,9 +9,9 @@ const schema = {
     id: { type: "string" },
     name: { type: "string" },
     value: {type: "string"},
-    message: { type: "string" },
+    balance: { type: "string" },
 },
-required: ["id", "name", "value"],
+required: ["id", "name", "value", "balance"],
 additionalProperties: false,
 };
 
