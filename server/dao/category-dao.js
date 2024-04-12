@@ -50,20 +50,6 @@ function create(category) {
   }
 }
 
-// Method to remove an category from a file
-function remove(categoryId) {
-  try {
-    const filePath = path.join(categoryFolderPath, `${categoryId}.json`);
-    fs.unlinkSync(filePath);
-    return {};
-  } catch (error) {
-    if (error.code === "ENOENT") {
-      return {};
-    }
-    throw { code: "failedToRemovecategory", category: error.category };
-  }
-}
-
 // Method to list categorys in a folder
 function list() {
   try {
@@ -81,7 +67,6 @@ function list() {
 module.exports = {
   get,
   create,
-  remove,
   list,
   exists,
 };

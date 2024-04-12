@@ -16,7 +16,7 @@ function get(spendingId) {
   }
 }
 
-// Method to write an spending to a file
+// Method to write a spending to a file
 function create(spending) {
   try {
     spending.id = crypto.randomBytes(16).toString("hex");
@@ -29,18 +29,18 @@ function create(spending) {
   }
 }
 
-// Method to update spending in a file
-function update(spending) {
+// Method to update a spending in a file
+function update(budgetPlan) {
   try {
-    const currentspending = get(spending.id);
-    if (!currentspending) return null;
-    const newspending = { ...currentspending, ...spending };
-    const filePath = path.join(spendingFolderPath, `${spending.id}.json`);
-    const fileData = JSON.stringify(newspending);
+    const currentbudgetPlan = get(budgetPlan.id);
+    if (!currentbudgetPlan) return null;
+    const newbudgetPlan = { ...currentbudgetPlan, ...budgetPlan };
+    const filePath = path.join(budgetPlanFolderPath, `${budgetPlan.id}.json`);
+    const fileData = JSON.stringify(newbudgetPlan);
     fs.writeFileSync(filePath, fileData, "utf8");
-    return newspending;
+    return newbudgetPlan;
   } catch (error) {
-    throw { code: "failedToUpdatespending", message: error.message };
+    throw { code: "failedToUpdatebudgetPlan", message: error.message };
   }
 }
 

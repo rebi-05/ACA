@@ -54,8 +54,8 @@ async function UpdateAbl(req, res) {
         .filter((item) => !item.exists)
         .map((item) => item.categoryId);
       res.status(400).json({
-        code: "categoryNotFound",
-        message: "One or more categories not found",
+        code: "categoryDoesNotExist",
+        message: "One or more categories do not exist",
         missingCategories,
       });
       return;
@@ -79,8 +79,8 @@ async function UpdateAbl(req, res) {
 
     if (!updatedbudgetPlan) {
       res.status(404).json({
-        code: "budgetPlanNotFound",
-        message: `budgetPlan ${budgetPlan.id} not found`,
+        code: "budgetPlanDoesNotExist",
+        message: `budgetPlan with ID ${reqParams.id} does not exist`,
       });
       return;
     }

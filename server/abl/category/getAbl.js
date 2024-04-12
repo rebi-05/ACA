@@ -31,7 +31,7 @@ async function GetAbl(req, res) {
     const category = categoryDao.get(reqParams.id);
     if (!category) {
       res.status(404).json({
-        code: "categoryNotFound",
+        code: "categoryDoesNotExist",
         message: `category ${reqParams.id} not found`,
       });
       return;

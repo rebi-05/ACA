@@ -97,5 +97,5 @@ module.exports = {
   update,
   remove,
   list,
-  getByYearAndMonth,
+  getByYearAndMonth,  
 };

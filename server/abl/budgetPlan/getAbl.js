@@ -31,8 +31,8 @@ async function GetAbl(req, res) {
     const budgetPlan = budgetPlanDao.get(reqParams.id);
     if (!budgetPlan) {
       res.status(404).json({
-        code: "budgetPlanNotFound",
-        message: `budgetPlan ${reqParams.id} not found`,
+        code: "budgetPlanDoesNotExist",
+        message: `budgetPlan with ID ${reqParams.id} does not exist`,
       });
       return;
     }

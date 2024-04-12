@@ -72,8 +72,8 @@ async function CreateAbl(req, res) {
         .filter((item) => !item.exists)
         .map((item) => item.categoryId);
       res.status(400).json({
-        code: "categoryNotFound",
-        message: "One or more categories not found",
+        code: "categoryDoesNotExist",
+        message: "One or more categories do not exist",
         missingCategories,
       });
       return;

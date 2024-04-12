@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true })); // podpora pro application/x-ww
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("Server funguje");
+  res.send("Server funguje :D");
 });
 
 app.use("/spending", spendingController);

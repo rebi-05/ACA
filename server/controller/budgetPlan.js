@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const GetAbl = require("../abl/budgetPlan/getAbl");
-//const ListAbl = require("../abl/budgetPlan/listAbl");
+const ListAbl = require("../abl/budgetPlan/listAbl");
 const CreateAbl = require("../abl/budgetPlan/createAbl");
 const UpdateAbl = require("../abl/budgetPlan/updateAbl");
 //const DeleteAbl = require("../abl/budgetPlan/deleteAbl");
@@ -11,9 +11,9 @@ router.get("/get", (req, res) => {
   GetAbl(req, res);
 });
 
-//router.get("/list", (req, res) => {
-//  ListAbl(req, res);
-//});
+router.get("/list", (req, res) => {
+  ListAbl(req, res);
+});
 
 router.post("/create", (req, res) => {
   CreateAbl(req, res);

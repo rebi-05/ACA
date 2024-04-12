@@ -8,8 +8,8 @@ const schema = {
  properties: { 
     id: { type: "string" },
     name: { type: "string" },
-    value: {type: "string"},
-    balance: { type: "string" },
+    value: {type: "number" },
+    balance: { type: "number" },
 },
 required: ["id", "name", "value", "balance"],
 additionalProperties: false,
